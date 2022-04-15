@@ -15,6 +15,7 @@
  */
 package com.example.wordsapp
 
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -69,6 +70,7 @@ class LetterAdapter :
         holder.button.setOnClickListener {
             // Create an action from WordList to DetailList
             // using the required arguments
+            val queryUrl: Uri = Uri.parse("${WordListFragment.SEARCH_PREFIX}${item}")
             val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
             // Navigate using that action
             holder.view.findNavController().navigate(action)
